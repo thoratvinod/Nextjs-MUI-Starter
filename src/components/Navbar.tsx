@@ -101,7 +101,7 @@ const Navbar = () => {
               }}
             >
               {pages.map((page) => (
-                <NextLinkComposed href={page.link} noLinkStyle={true}>
+                <NextLinkComposed key={page.title} href={page.link} noLinkStyle={true}>
                   <MenuItem
                     key={page.title}
                     onClick={handleCloseNavMenu}
@@ -127,7 +127,7 @@ const Navbar = () => {
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
           >
             {pages.map((page) => (
-              <NextLinkComposed href={page.link} noLinkStyle={true}>
+              <NextLinkComposed key={page.title} href={page.link} noLinkStyle={true}>
                 <Button
                   key={page.title}
                   onClick={handleCloseNavMenu}
@@ -191,10 +191,11 @@ const Navbar = () => {
             >
               {authButtons.map((btn) => (
                 <NextLinkComposed
+                  key={btn}
                   href={`/auth/${btn.toLowerCase()}`}
                   noLinkStyle={true}
                 >
-                  <MenuItem key={btn} onClick={handleCloseUserAuth}>
+                  <MenuItem onClick={handleCloseUserAuth}>
                     <Typography textAlign="center" sx={{ color: "black" }}>
                       {btn}
                     </Typography>
